@@ -1,0 +1,103 @@
+<section ng-controller="userEventsController as ctrl">
+
+      <md-content >
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="active" >
+            <div  layout-xs="column" layout="row"
+            layout-wrap layout-margin
+            layout-align="center space-between" >
+            <md-card ng-click="ctrl.manageEvent(event)" ng-repeat="event in ctrl.activeEvents"
+             flex="49"
+            flex-xs="100"   layout-xs-fill >
+              <img flex
+                  ng-src="{{ctrl.poster(evt.eventImage)}}"
+                  class=" card-media"/>
+                   <md-card-title>
+                     <md-card-title-text>
+                       <span class="md-body-2" ng-bind="event.eventName"></span>
+                     </md-card-title-text>
+                   </md-card-title>
+                   <md-card-actions layout="row" layout-xs="column"  layout-align="start start">
+                     <md-card-icon-actions flex-xs="100">
+                       <md-button class="md-icon-button" aria-label="delete event">
+                         <md-icon>delete</md-icon>
+                       </md-button>
+                       <md-button class="md-icon-button" aria-label="setting">
+                         <md-icon>build</md-icon>
+                       </md-button>
+
+                     </md-card-icon-actions>
+                     <div flex-xs="100">
+
+
+                     <md-button>Report</md-button>
+                     <md-button>Attendees</md-button>
+</div>
+                   </md-card-actions>
+                   <md-card-content>
+                     <p ng-bind="event.startDate"> </p>
+                   </md-card-content>
+                 </md-card>
+
+
+
+  </div>
+
+
+          </md-tab>
+          <md-tab label="drafts">
+            <md-content  layout="column" layout-padding >
+
+
+
+                <md-card class="md-whiteframe-z2" layout="row" ng-repeat="evt in ctrl.draftEvents"
+                layout-margin
+                layout-fill >
+                  <md-card-title >
+                    <md-card-title-media>
+                      <img ng-src="{{ctrl.poster(evt.eventImage)}}" class="md-media-lg card-media"/>
+                    </md-card-title-media>
+                    <md-card-title-text>
+                      <span class="md-body-2" ng-bind="evt.eventName"></span>
+                      <span class="md-subhead" ng-bind="evt.startDate"> event</span>
+                    </md-card-title-text>
+
+                  </md-card-title>
+                  <md-divider></md-divider>
+                  <md-card-actions layout="row" layout-align="start center">
+                    <md-button ng-click="ctrl.manageEvent(evt)" >
+                      <md-icon>build</md-icon>
+                      Manage</md-button>
+                  </md-card-actions>
+                </md-card>
+  </md-content>
+          </md-tab>
+          <md-tab label="past">
+            <md-content  layout="column"  layout-padding >
+
+
+
+                <md-card class="md-whiteframe-z2" ng-repeat="evt in ctrl.pastEvents" layout-margin  layout-fill >
+                  <md-card-title >
+                    <md-card-title-media>
+                      <img ng-src="{{ctrl.poster(evt.eventImage)}}" class="md-media-lg card-media"/>
+                    </md-card-title-media>
+                    <md-card-title-text>
+                      <span class="md-body-2" ng-bind="evt.eventName"></span>
+                      <span class="md-subhead" ng-bind="evt.startDate"> event</span>
+                    </md-card-title-text>
+
+                  </md-card-title>
+                  <md-divider></md-divider>
+                  <md-card-actions layout="row" layout-align="start center">
+                    <md-button ng-click="ctrl.manageEvent(evt)" >
+                      <md-icon>build</md-icon>
+                      Manage</md-button>
+                  </md-card-actions>
+                </md-card>
+  </md-content>
+          </md-tab>
+        </md-tab>
+
+
+</section>

@@ -1,0 +1,58 @@
+<section layout-margin ng-controller="biilingAddressUpdateController as ctrl">
+
+  <form ng-submit="ctrl.saveChanges()" name="billingAddrsUpdater">
+      <div class="md-whiteframe-z2">
+        <md-content layout="row"
+                    layout-padding
+                    layout-margin
+                    layout-xs="column"
+                    ng-repeat="subscription in ctrl.accounts track by $index" layout-align="space-between">
+          <md-input-container flex="50" flex-xs="100">
+            <label>Mobile Banking Provider</label>
+            <md-select aria-label="Mobile banking provider select"
+                      name="providers[]"
+                      ng-model="subscription.bankId"
+                      required>
+                <md-option ng-repeat="bank in ctrl.paymentProviders" ng-value="bank.bankId">
+                  {{bank.providerName}}
+                </md-option>
+            </md-select>
+            <div ng-messages="billingAddrsUpdater.providers.$error">
+              <div ng-message="required">
+                Service Provider Is Required
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container flex="50" flex-xs="100">
+            <label>Mobile Number</label>
+            <input
+                  type="text"
+                  required="required"
+                  name="mobileNumber[]"
+                  ng-model="subscription.mobileNumber"
+                  placeholder="Registered Mobile Number"
+                  />
+            <div ng-messages="billingAddrsUpdater.mobileNumber.$error">
+              <div ng-message="required">
+                Mobile Number is Reuired
+              </div>
+            </div>
+          </md-input-container>
+        </md-content>
+<md-divider></md-divider>
+        <div layout="row" ng-controller="dynamicFieldController as dynamicCtrl" layout-align="center center">
+          <md-button ng-disabled="billingAddrsUpdater.$invalid"
+                    ng-click="dynamicCtrl.addBillingSubscription(ctrl.accounts)"
+                    class="md-primary"   >
+            <md-icon>add</md-icon>
+            Add
+          </md-button>
+
+        </div>
+      </div>
+
+      <ad-default-submit-options></ad-default-submit-options>
+
+  </form>
+
+</section>

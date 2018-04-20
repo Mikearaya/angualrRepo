@@ -1,0 +1,24 @@
+<section
+        layout-margin
+        ng-controller="eventDiscriptionUpdateController as ctrl"
+        ng-cloak>
+
+    <form ng-submit="ctrl.saveChanges()" name="discriptionUpdater">
+        <md-content layout-padding  layout="row" class="md-whiteframe-z2">
+
+            <md-input-container class="md-accent" flex flex-xs="100">
+              <label>Discription </label>
+              <textarea ng-model="ctrl.eventDiscription" name="discription" required ></textarea>
+              <div ng-messages="discriptionUpdater.discription.$error">
+                <div ng-message="required">
+                  Event discription is Required
+
+                </div>
+              </div>
+            </md-input-container>
+
+        </md-content>
+        <ad-default-submit-options></ad-default-submit-options>
+    </form>
+
+</section>

@@ -1,0 +1,51 @@
+<section layout-margin ng-controller="eventScheduleUpdateController as ctrl" ng-cloak>
+
+    <form ng-submit="ctrl.saveChanges()" name="scheduleUpdater">
+      <div layout="row" layout-xs="column" layout-margin>
+        <div flex class="md-whiteframe-z2"  layout-xs="column" layout="row" >
+          <md-input-container  flex="50" flex-xs="100" >
+            <label>Start Date</label>
+            <md-datepicker
+                          md-min-date="ctrl.minDate"
+                          md-placeholder="Start Date"
+                          ng-model="ctrl.eventStartDate"
+                          name="eventStartDate"
+                          required="required">
+            </md-datepicker>
+          </md-input-container>
+          <md-time-picker flex="50" flex-xs="100"
+                          ng-model="ctrl.eventStartTime"
+                          message="message"
+                          no-meridiem
+                          mandatory="true">
+          </md-time-picker>
+        </div>
+          <md-divider></md-divider>
+          <div flex class="md-whiteframe-z2"  layout-xs="column" layout="row" layout-padding  >
+            <md-input-container  flex="50" flex-xs="100" >
+              <label>End Date</label>
+              <md-datepicker
+                            md-min-date="ctrl.eventStartDate"
+                            md-placeholder="End Date"
+                            ng-model="ctrl.eventEndDate"
+                            name="eventEndDate"
+                            required="required" >
+              </md-datepicker>
+            </md-input-container>
+
+
+
+            <md-time-picker flex="50" flex-xs="100"
+                            no-meridiem
+                            ng-model="ctrl.eventEndTime"
+                            message="message"
+                            mandatory="true">
+            </md-time-picker>
+
+        </div>
+
+      </div>
+      <ad-default-submit-options></ad-default-submit-options>
+    </form>
+
+</section>

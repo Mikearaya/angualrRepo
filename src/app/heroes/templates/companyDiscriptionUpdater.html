@@ -1,0 +1,20 @@
+<section
+        layout-margin
+        ng-controller="companyDiscriptionUpdateController as ctrl"
+        ng-cloak>
+
+    <form ng-submit="ctrl.saveChanges()" name="discriptionUpdater">
+        <md-content layout-padding  layout="row" class="md-whiteframe-z2">
+
+            <md-input-container class="md-accent" flex flex-xs="100">
+              <label>Discription </label>
+              <textarea ng-model="ctrl.discription" name="discription"></textarea>
+            </md-input-container>
+
+        </md-content>
+
+        <ad-default-submit-options></ad-default-submit-options>
+
+    </form>
+
+</section>
